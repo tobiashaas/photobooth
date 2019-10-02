@@ -336,8 +336,8 @@ $imagelist = ($config['newest_first'] === true) ? array_reverse($images) : $imag
 	<script type="text/javascript" src="resources/js/vendor/EasePack.min.js"></script>
 	<script type="text/javascript" src="resources/js/vendor/jquery.gsap.min.js"></script>
 	<script type="text/javascript" src="resources/js/vendor/CSSPlugin.min.js"></script>
-	<script type="text/javascript" src="node_modules/photoswipe/dist/photoswipe.min.js"></script>
-	<script type="text/javascript" src="node_modules/photoswipe/dist/photoswipe-ui-default.min.js"></script>
+	<script type="text/javascript" src="resources/js/photoswipe.min.js"></script>
+	<script type="text/javascript" src="resources/js/photoswipe/dist/photoswipe-ui-default.min.js"></script>
 	<script type="text/javascript" src="resources/js/photoinit.js"></script>
 	<script type="text/javascript" src="resources/js/theme.js"></script>
 	<script type="text/javascript" src="resources/js/core.js"></script>
