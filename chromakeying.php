@@ -27,7 +27,7 @@ if (file_exists($keyingimage)) {
 <link rel="stylesheet" href="resources/css/style.css" />
 	<script type="text/javascript">
 		var isdev = <?php echo ($config['dev']) ? 'true' : 'false'; ?>;
-		var theme = <?php echo $config['bluegray_theme'] ? "'bluegray'" : "'default'"; ?>;
+		var theme = <?php echo '"'.$config['color_theme'].'"'; ?>;
 	</script>
 </head>
 <body>

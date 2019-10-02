@@ -99,6 +99,7 @@ L10N = {
 	"textonprint_rotation": "Rotación del texto",
 	"textonprint_linespace": "Interlineado",
 	"textonprint_fontsize": "Tamaño de la fuente",
-	"user_interface": "Interfaz de usuario",
-	"bluegray_theme": "Tema azul-gris"
+	"user_interface": "Interfaz de usuario",	
+	"user_interface_color_theme": "Tema",
+	"color_theme": "Elige un tema"
 }

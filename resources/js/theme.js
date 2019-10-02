@@ -1,9 +1,3 @@
-if (theme === 'default') {
-    var style = document.documentElement.style;
-
-    document.getElementById('wrapper').style.backgroundImage = 'url(resources/img/bg.jpg)';
-}
-
 if (theme === 'bluegray') {
     var style = document.documentElement.style;
 
@@ -12,16 +6,6 @@ if (theme === 'bluegray') {
     style.setProperty('--font-color', '#f0f6f7');
 
     document.getElementById('wrapper').style.backgroundImage = 'url(resources/img/bg_bluegray.jpg)';
-}
-
-if (theme === 'yellow') {
-    var style = document.documentElement.style;
-
-    style.setProperty('--primary-color', '#fcff00');
-    style.setProperty('--secondary-color', '#2e535e');
-    style.setProperty('--font-color', '#f0f6f7');
-
-    document.getElementById('wrapper').style.backgroundImage = 'url(resources/img/bg_yellow.jpg)';
 }
 
 $(function() {

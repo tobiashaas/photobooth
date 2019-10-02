@@ -1,12 +1,10 @@
 <?php
-
 $my_config = '../my.config.inc.php';
 if (file_exists($my_config)) {
 	require_once('../my.config.inc.php');
 } else {
 	require_once('../config.inc.php');
 }
-
 	$configsetup = [
 		'general' => [
 			'language' => [
@@ -123,16 +121,15 @@ if (file_exists($my_config)) {
 				'name' => 'show_fork',
 				'value' => $config['show_fork']
 			],
-			'themes' => [
+			'color_theme' => [
 				'type' => 'select',
-				'name' => 'themes',
-				'placeholder' => 'themes',
+				'name' => 'color_theme',
+				'placeholder' => 'default',
 				'options' => [
-					'default' => 'DEFAULT',
-					'yellow' => 'YELLOW',
-					'bluegray' => 'BLUEGRAY'
+					'default' => 'default',
+					'bluegray' => 'blue-gray'
 				],
-				'value' => $config['themes']
+				'value' => $config['color_theme']
 			]
 		],
 		'folders' => [
@@ -392,7 +389,7 @@ if (file_exists($my_config)) {
 	<link rel="icon" type="image/png" sizes="16x16" href="../resources/img/favicon-16x16.png">
 	<link rel="manifest" href="../resources/img/site.webmanifest">
 	<link rel="mask-icon" href="../resources/img/safari-pinned-tab.svg" color="#5bbad5">
-	<?php if($config['bluegray_theme']) { ?>
+	<?php if($config['color_theme'] == 'bluegray') { ?>
 		<meta name="msapplication-TileColor" content="ff4f58">
 		<meta name="theme-color" content="#669db3">
 	<?php } else { ?>
@@ -408,7 +405,7 @@ if (file_exists($my_config)) {
 	<script type="text/javascript">
 		var isdev = <?php echo ($config['dev']) ? 'true' : 'false'; ?>;
 		var gallery_newest_first = <?php echo ($config['newest_first']) ? 'true' : 'false'; ?>;
-		var theme = <?php echo $config['bluegray_theme'] ? "'bluegray'" : "'default'"; ?>;
+		var theme = <?php echo '"'.$config['color_theme'].'"'; ?>;
 	</script>
 </head>
 <body class="deselect">
@@ -444,7 +441,6 @@ if (file_exists($my_config)) {
 						echo '<div class="panel'.$open.'"><div class="panel-heading"><h3><span class="minus">-</span><span class="plus">+</span><span data-l10n="'.$panel.'">'.$panel.'</span></h3></div>
 									<div class="panel-body">
 						';
-
 						foreach($fields as $key => $field){
 							echo '<div class="form-row">';
 							switch($field['type']) {

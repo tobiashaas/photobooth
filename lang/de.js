@@ -99,6 +99,7 @@ L10N = {
 	"textonprint_rotation": "Text-Rotation",
 	"textonprint_linespace": "Zeilenabstand",
 	"textonprint_fontsize": "Schriftgröße",
-	"user_interface": "Benutzeroberfläche",
-	"theme": "Theme Style auswählen"
+	"user_interface": "Benutzeroberfläche",	
+	"user_interface_color_theme": "Theme",
+	"color_theme": "Theme auswählen"
 }

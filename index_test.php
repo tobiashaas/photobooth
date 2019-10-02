@@ -41,7 +41,6 @@ require_once('db.php');
 	<link rel="stylesheet" href="resources/css/photoswipe.css">
 	<link rel="stylesheet" href="resources/css/default-skin/default-skin.css">
 	<link rel="stylesheet" href="resources/css/style3.css" />
-	<link rel="stylesheet" href="resources/css/style.css" />
 
 	<script type="text/javascript">
 		var isdev = <?php echo ($config['dev']) ? 'true' : 'false'; ?>;

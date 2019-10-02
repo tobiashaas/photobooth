@@ -1,5 +1,4 @@
 <?php
-
 $my_config = 'my.config.inc.php';
 if (file_exists($my_config)) {
 	require_once('my.config.inc.php');
@@ -8,7 +7,6 @@ if (file_exists($my_config)) {
 }
 require_once('folders.php');
 require_once('db.php');
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,6 +21,13 @@ require_once('db.php');
 	<link rel="icon" type="image/png" sizes="16x16" href="resources/img/favicon-16x16.png">
 	<link rel="manifest" href="resources/img/site.webmanifest">
 	<link rel="mask-icon" href="resources/img/safari-pinned-tab.svg" color="#5bbad5">
+	<?php if($config['color_theme'] == 'bluegray') { ?>
+		<meta name="msapplication-TileColor" content="ff4f58">
+		<meta name="theme-color" content="#669db3">
+	<?php } else { ?>
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="theme-color" content="#ffffff">
+	<?php }; ?>
 
 	<!-- Fullscreen Mode on old iOS-Devices when starting photobooth from homescreen -->
 	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -43,9 +48,8 @@ require_once('db.php');
 		var gallery_scrollbar = <?php echo ($config['scrollbar']) ? 'true' : 'false'; ?>;
  		var cntdwn_time = <?php echo ($config['cntdwn_time']); ?>;
 		var cheese_time = <?php echo ($config['cheese_time']); ?>;
-		var theme = <?php echo $config['theme'] ? "'bluegray'" : "'default'"; ?>;
+		var theme = <?php echo '"'.$config['color_theme'].'"'; ?>;
 	</script>
-	<script type="text/javascript" src="lang/<?php echo $config['themes']; ?>.js"></script>
 </head>
 <body class="deselect">
 	<div id="wrapper">
@@ -169,13 +173,10 @@ require_once('db.php');
 							if ($config['file_format_date'] == true && $config['show_date'] == true) {
 								$date = DateTime::createFromFormat('Ymd_His', substr($image, 0, strlen($image) - 4));
 							}
-
 							$filename_photo = $config['folders']['images'] . DIRECTORY_SEPARATOR . $image;
 							$filename_thumb = $config['folders']['thumbs'] . DIRECTORY_SEPARATOR . $image;
-
 							$imageinfo = getimagesize($filename_photo);
 							$imageinfoThumb = getimagesize($filename_thumb);
-
 							echo '<a href="' . $filename_photo.'" data-size="'.$imageinfo[0].'x'.$imageinfo[1].'" data-med="' . $filename_thumb.'" data-med-size="'.$imageinfoThumb[0].'x'.$imageinfoThumb[1].'">
 									<img src="' . $filename_thumb .'" />
 									<figure>' . ($date == false ? '' : '<i class="fa fa-clock-o"></i> ' . $date->format($config['gallery']['date_format'])) . '</figure>

@@ -1,10 +1,8 @@
 <?php
-
 //  WARNING!
 // This config gets overwritten by the admin panel if you use it.
 // If you want to use only this file, delete the admin/config.json file and do not use the admin panel
 // as it writes new config.json files.
-
 $config = array();
 $sys['os'] = (DIRECTORY_SEPARATOR == '\\') || (strtolower(substr(PHP_OS, 0, 3)) === 'win') ? 'windows' : 'linux';
 $config['dev'] = false;
@@ -24,18 +22,14 @@ $config['polaroid_effect'] = false;
 $config['polaroid_rotation'] = '0';
 $config['chroma_keying'] = true;
 $config['use_collage'] = false;
-
 // THEME
-$config['themes'] = 'yellow';
-
+$config['color_theme'] = 'default';
 // LANGUAGE
 // possible values: en, de, es, fr
 $config['language'] = 'de';
-
 // StartScreen
 $config['start_screen_title'] = 'Photobooth';
 $config['start_screen_subtitle'] = 'Webinterface by André Rinas';
-
 // FOLDERS
 // change the folders to whatever you like
 $config['folders']['images'] = 'images';
@@ -44,13 +38,11 @@ $config['folders']['print'] = 'print';
 $config['folders']['qrcodes'] = 'qrcodes';
 $config['folders']['thumbs'] = 'thumbs';
 $config['folders']['tmp'] = 'tmp';
-
 // WEDDING SETTINGS
 $config['is_wedding'] = false;
 $config['wedding']['groom'] = 'Name 1';
 $config['wedding']['bride'] = 'Name 2';
 $config['wedding']['symbol'] = 'fa-heart-o';
-
 // GALLERY
 // should the gallery list the newest pictures first?
 $config['show_gallery'] = true;
@@ -58,7 +50,6 @@ $config['newest_first'] = true;
 $config['scrollbar'] = false;
 $config['show_date'] = false; // only works if file_format_date = true
 $config['gallery']['date_format'] = 'd.m.Y - G:i';
-
 // TEXT ON PRINT
 $config['is_textonprint'] = false;
 $config['textonprint']['line1'] = 'line 1';
@@ -69,7 +60,6 @@ $config['locationy'] = '1050';
 $config['rotation'] = '40';
 $config['fontsize'] = '100';
 $config['linespace'] = '100';
-
 // EMAIL
 // If connection fails some help can be found here: https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
 // Especially gmail needs some special config
@@ -81,7 +71,6 @@ $config['mail_secure'] = 'tls';
 $config['mail_port'] = '587';
 $config['mail_fromAddress'] = 'photobooth@example.com';
 $config['mail_fromName'] = 'Photobooth';
-
 switch($config['language']) {
 	case 'de':
 	$config['mail_subject'] = 'Hier ist dein Bild';
@@ -97,7 +86,6 @@ switch($config['language']) {
 	$config['mail_text'] = 'Hey, your picture is attached.';
 	break;
 }
-
 // COMMANDS and MESSAGES
 switch($sys['os']) {
 	case 'windows':
@@ -114,7 +102,6 @@ switch($sys['os']) {
 	$config['print']['msg'] = '';
 	break;
 }
-
 // MERGE WITH admin/config.json if exists
 $filename = false;
 if(file_exists('admin/config.json')) {
@@ -122,7 +109,6 @@ if(file_exists('admin/config.json')) {
 } elseif(file_exists('config.json')) {
 	$filename = 'config.json';
 }
-
 if($filename){
 	$file = json_decode(file_get_contents($filename),true);
 	$config = $file;
