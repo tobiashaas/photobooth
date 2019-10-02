@@ -100,5 +100,5 @@ L10N = {
 	"textonprint_linespace": "Zeilenabstand",
 	"textonprint_fontsize": "Schriftgröße",
 	"user_interface": "Benutzeroberfläche",
-	"bluegray_theme": "Blaugraues Theme"
+	"theme": "Theme Style auswählen"
 }

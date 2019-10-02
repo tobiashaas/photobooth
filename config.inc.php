@@ -27,8 +27,7 @@ $config['use_collage'] = false;
 
 // THEME
 $config['theme'] = false;
-
-
+$config['theme'] = 'default';
 
 // LANGUAGE
 // possible values: en, de, es, fr

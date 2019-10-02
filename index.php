@@ -17,20 +17,12 @@ require_once('db.php');
 	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
 	<title>Photobooth</title>
 
-
 	<!-- Favicon + Android/iPhone Icons -->
 	<link rel="apple-touch-icon" sizes="180x180" href="resources/img/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="resources/img/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="resources/img/favicon-16x16.png">
 	<link rel="manifest" href="resources/img/site.webmanifest">
 	<link rel="mask-icon" href="resources/img/safari-pinned-tab.svg" color="#5bbad5">
-	<?php if($config['bluegray_theme']) { ?>
-		<meta name="msapplication-TileColor" content="ff4f58">
-		<meta name="theme-color" content="#669db3">
-	<?php } else { ?>
-		<meta name="msapplication-TileColor" content="#da532c">
-		<meta name="theme-color" content="#ffffff">
-	<?php }; ?>
 
 	<!-- Fullscreen Mode on old iOS-Devices when starting photobooth from homescreen -->
 	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,11 +43,11 @@ require_once('db.php');
 		var gallery_scrollbar = <?php echo ($config['scrollbar']) ? 'true' : 'false'; ?>;
  		var cntdwn_time = <?php echo ($config['cntdwn_time']); ?>;
 		var cheese_time = <?php echo ($config['cheese_time']); ?>;
-		var theme = <?php echo $config['bluegray_theme'] ? "'bluegray'" : "yellow" : "'default'"; ?>;
+		var theme = <?php echo $config['theme'] ? "'bluegray'" : "'default'"; ?>;
 	</script>
 </head>
 <body class="deselect">
-	<div id="wrapper" style="background-image: url(/resources/img/bg.jpg);">
+	<div id="wrapper">
 
 		<!-- Start Page -->
 		<div class="stages" id="start">

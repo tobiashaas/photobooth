@@ -125,12 +125,12 @@ if (file_exists($my_config)) {
 			],
 			'theme' => [
 				'type' => 'select',
-				'name' => 'theme',
-				'placeholder' => 'default',
+				'name' => 'themestyle[theme]',
+				'placeholder' => '[theme]',
 				'options' => [
-					'default_theme' => 'default',
-					'bluegray_theme' => 'bluegray',
-					'yellow_theme' => 'yellow',
+					'default' => 'Default',
+					'bluegray' => 'Bluegray',
+					'yellow' => 'Yellow',
 				],
 				'value' => $config['theme']
 			]
