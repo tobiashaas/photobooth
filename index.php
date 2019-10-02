@@ -1,12 +1,10 @@
 <?php
-$my_config = 'my.config.inc.php';
-if (file_exists($my_config)) {
-	require_once('my.config.inc.php');
-} else {
-        require_once('config.inc.php');
-}
-require_once('folders.php');
-require_once('db.php');
+
+require_once('lib/config.php');
+require_once('lib/folders.php');
+require_once('lib/db.php');
+
+$imagelist = ($config['newest_first'] === true) ? array_reverse($images) : $images;
 ?>
 <!DOCTYPE html>
 <html>

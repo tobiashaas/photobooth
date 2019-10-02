@@ -1,13 +1,17 @@
-if (theme === 'bluegray') {
-    var style = document.documentElement.style;
+const style = document.documentElement.style;
 
-    style.setProperty('--primary-color', '#669db3');
-    style.setProperty('--secondary-color', '#2e535e');
-    style.setProperty('--font-color', '#f0f6f7');
+style.setProperty('--primary-color', config.colors.primary);
+style.setProperty('--secondary-color', config.colors.secondary);
+style.setProperty('--font-color', config.colors.font);
 
-    document.getElementById('wrapper').style.backgroundImage = 'url(resources/img/bg_bluegray.jpg)';
+if (config.color_theme === 'blue-gray') {
+    $('#wrapper').addClass('bluegray-bg');
 }
 
-$(function() {
+if (config.color_theme === 'yellow') {
+    $('#wrapper').addClass('yellow-bg');
+}
+
+$(function () {
     $('#wrapper').show();
 });
