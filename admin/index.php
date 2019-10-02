@@ -111,11 +111,6 @@ if (file_exists($my_config)) {
 				'name' => 'use_collage',
 				'value' => $config['use_collage']
 			],
-			'cups_button' => [
-				'type' => 'checkbox',
-				'name' => 'cups_button',
-				'value' => $config['cups_button']
-			],
 			'previewFromCam' => [
 				'type' => 'checkbox',
 				'name' => 'previewFromCam',
@@ -128,15 +123,16 @@ if (file_exists($my_config)) {
 				'name' => 'show_fork',
 				'value' => $config['show_fork']
 			],
-			'bluegray_theme' => [
-				'type' => 'checkbox',
-				'name' => 'bluegray_theme',
-				'value' => $config['bluegray_theme']
-			],
-			'use_mobile_view' => [
-				'type' => 'checkbox',
-				'name' => 'use_mobile_view',
-				'value' => $config['use_mobile_view']
+			'theme' => [
+				'type' => 'select',
+				'name' => 'theme',
+				'placeholder' => 'default',
+				'options' => [
+					'default_theme' => 'default',
+					'bluegray_theme' => 'bluegray',
+					'yellow_theme' => 'yellow',
+				],
+				'value' => $config['theme']
 			]
 		],
 		'folders' => [
@@ -387,15 +383,15 @@ if (file_exists($my_config)) {
 <html>
 <head>
 	<meta charset="UTF-8" />
-	<?php if($config['use_mobile_view']){ ?><meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no"><?php } ?>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
 	<title>Photobooth</title>
 
 	<!-- Favicon + Android/iPhone Icons -->
-	<link rel="apple-touch-icon" sizes="180x180" href="/resources/img/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/resources/img/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/resources/img/favicon-16x16.png">
-	<link rel="manifest" href="/resources/img/site.webmanifest">
-	<link rel="mask-icon" href="/resources/img/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="apple-touch-icon" sizes="180x180" href="../resources/img/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../resources/img/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../resources/img/favicon-16x16.png">
+	<link rel="manifest" href="../resources/img/site.webmanifest">
+	<link rel="mask-icon" href="../resources/img/safari-pinned-tab.svg" color="#5bbad5">
 	<?php if($config['bluegray_theme']) { ?>
 		<meta name="msapplication-TileColor" content="ff4f58">
 		<meta name="theme-color" content="#669db3">
@@ -404,21 +400,21 @@ if (file_exists($my_config)) {
 		<meta name="theme-color" content="#ffffff">
 	<?php }; ?>
 
-	<link rel="stylesheet" type="text/css" href="/resources/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css" />
-	<link rel="stylesheet" type="text/css" href="/resources/css/default-skin/default-skin.css">
-	<link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
-	<link rel="stylesheet" href="/resources/css/admin.css" />
-	<?php if($config['bluegray_theme']){ ?><link rel="stylesheet" href="/resources/css/bluegray_admin.css" /><?php } ?>
+	<link rel="stylesheet" type="text/css" href="../resources/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="../resources/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="../resources/css/default-skin/default-skin.css">
+	<link rel="stylesheet" type="text/css" href="../resources/css/style.css" />
+	<link rel="stylesheet" href="../resources/css/admin.css" />
 	<script type="text/javascript">
 		var isdev = <?php echo ($config['dev']) ? 'true' : 'false'; ?>;
 		var gallery_newest_first = <?php echo ($config['newest_first']) ? 'true' : 'false'; ?>;
+		var theme = <?php echo $config['bluegray_theme'] ? "'bluegray'" : "'default'"; ?>;
 	</script>
 </head>
 <body class="deselect">
-<div id="admin-settings">
+<div id="wrapper" style="overflow-y: auto;">
 	<div class="admin-panel">
-		<h2><a class="back-to-pb" href="/">Photobooth</a></h2>
+		<h2><a class="back-to-pb" href="../">Photobooth</a></h2>
 		<button class="reset-btn">
 			<span class="save">
 				<span data-l10n="reset"></span>
@@ -505,10 +501,11 @@ if (file_exists($my_config)) {
 	</div>
 
 </div>
-<script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="/resources/js/l10n.js"></script>
-<script type="text/javascript" src="/resources/js/admin.js"></script>
-<script type="text/javascript" src="/lang/<?php echo $config['language']; ?>.js"></script>
+<script type="text/javascript" src="../resources/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../resources/js/l10n.js"></script>
+<script type="text/javascript" src="../resources/js/theme.js"></script>
+<script type="text/javascript" src="../resources/js/admin.js"></script>
+<script type="text/javascript" src="../lang/<?php echo $config['language']; ?>.js"></script>
 
 </body>
 </html>

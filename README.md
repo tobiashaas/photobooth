@@ -49,10 +49,9 @@ Get the Photobooth source and set perms
 ```
 cd /var/www/
 sudo rm -r html/
-sudo git clone https://github.com/andi34/photobooth html
-cd /var/www/html/resources/lib
-sudo git clone https://github.com/PHPMailer/PHPMailer
+sudo git clone https://github.com/andreknieriem/photobooth html
 cd /var/www/html
+sudo git submodule update --init
 sudo cp config.inc.php my.config.inc.php
 sudo mkdir -p /var/www/html/images
 sudo mkdir -p /var/www/html/keying
@@ -170,11 +169,8 @@ sudo crontab -e
 @reboot python /var/www/html/button.py &
 ```
 
-### Donation
-If you like my work and like to keep me motivated you can buy me a coconut water
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/andreasblaesius)
-
 ### Changelog
+- 1.9.0: Responsive Layout. Use relative paths to allow running Photobooth in a subfolder. Fix config.json being ignored on chromakeying. Adjustments on blue-gray theme. Some more small adjustments and bugfixes.
 - 1.8.3: Adjust scrollbar config and add blue-gray scrollbar theme, allow using Pi Cam for preview and to take pictures, add hidden shortcut for admin settings, add polaroid effect, add print confirmation dialogue
 - 1.8.2: Added spanish as supported language, print text on picture feature, optional blue-gray theme, adjust admin panel. Small bugfixes and improvements as always.
 - 1.8.1: Small bugfixes and improvements. New Features: enable/disable printing QR-Code, enable/disable photo collage function, enable/disable printing a frame on your picture
@@ -221,3 +217,4 @@ If you like my work and like to keep me motivated you can buy me a coconut water
 - [thymon13](https://github.com/thymon13)
 - [vdubuk](https://github.com/vdubuk)
 - [msmedien](https://github.com/msmedien)
+- [sualko](https://github.com/sualko)

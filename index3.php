@@ -40,6 +40,7 @@ require_once('db.php');
 	<link rel="stylesheet" href="resources/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="resources/css/photoswipe.css">
 	<link rel="stylesheet" href="resources/css/default-skin/default-skin.css">
+	<link rel="stylesheet" href="resources/css/style3.css" />
 	<link rel="stylesheet" href="resources/css/style.css" />
 
 	<script type="text/javascript">
@@ -51,35 +52,28 @@ require_once('db.php');
 		var gallery_scrollbar = <?php echo ($config['scrollbar']) ? 'true' : 'false'; ?>;
  		var cntdwn_time = <?php echo ($config['cntdwn_time']); ?>;
 		var cheese_time = <?php echo ($config['cheese_time']); ?>;
-		var theme = <?php echo $config['bluegray_theme'] ? "'bluegray'" : "yellow" : "'default'"; ?>;
+		var theme = <?php echo $config['bluegray_theme'] ? "'bluegray'" : "'default'"; ?>;
 	</script>
 </head>
-<body class="deselect">
-	<div id="wrapper" style="background-image: url(/resources/img/bg.jpg);">
+<body style="background: url('/resources/img/bg.jpg') center center no-repeat;">
 
-		<!-- Start Page -->
-		<div class="stages" id="start">
-			<?php if($config['show_gallery']){ ?><a class="gallery-button btn" href="#"><i class="fa fa-th"></i> <span data-l10n="gallery"></span></a><?php } ?>
-			<div class="blurred">
-			</div>
-			<div class="inner">
-				<?php
-				if($config['is_wedding']) {
-					echo '<div class="names"><hr class="small" /><hr><div><h1>'. $config['wedding']['groom'] . ' <i class="fa '. $config['wedding']['symbol'] .' "aria-hidden="true"></i> ' . $config['wedding']['bride'] . '<br>' . $config['start_screen_title'] . '</h1><h2>' . $config['start_screen_subtitle'] . '</h2></div><hr><hr class="small" /></div>';
-				} else {
-					echo '<div class="names"><hr class="small" /><hr><div><h1>'. $config['start_screen_title'] . '</h1><h2>' . $config['start_screen_subtitle'] . '</h2></div><hr><hr class="small" /></div>';
-				};
-				?>
-				<?php if($config['use_filter']){ ?><a href="#" class="btn imageFilter"><i class="fa fa-magic"></i> <span data-l10n="selectFilter"></span></a><?php } ?>
-				<?php if($config['use_collage']){ ?><a href="#" <?php if($config['use_gpio_button']){ ?>accesskey="m"<?php } ?> class="btn takeCollage"><i class="fa fa-th-large"></i> <span data-l10n="takeCollage"></span></a><?php } ?>
-				<!-- accesskey to take a photo using alt+p (or use an external button)? -->
-				<a href="#" <?php if($config['use_gpio_button']){ ?>accesskey="p"<?php } ?> class="btn takePic"><i class="fa fa-camera"></i> <span data-l10n="takePhoto"></span></a>
-			</div>
-
-			<?php if($config['show_fork']): ?>
-			<a target="_blank" href="https://github.com/andreknieriem/photobooth" rel="noopener"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
-			<?php endif; ?>
-		</div>
+<section class="hero">
+  <header id="header">
+  <?php if($config['show_gallery']){ ?><a class="gallery-button btn" href="#"><i class="fa fa-th"></i> <span data-l10n="gallery"></span></a><?php } ?>
+  </header>  
+  <header class="hero-header">
+			<?php if($config['is_wedding']) { echo '<div class="names"><hr class="small" /><hr><div><h1>'. $config['wedding']['groom'] . ' <i class="fa '. $config['wedding']['symbol'] .' "aria-hidden="true"></i> ' . $config['wedding']['bride'] . '<br>' . $config['start_screen_title'] . '</h1><h2>' . $config['start_screen_subtitle'] . '</h2></div><hr><hr class="small" /></div>';
+			} else {
+				echo '<div class="names"><hr class="small" /><hr><div><h1>'. $config['start_screen_title'] . '</h1><h2>' . $config['start_screen_subtitle'] . '</h2></div><hr><hr class="small" /></div>';				};
+			?>
+  </header>
+  <footer class="hero-footer">
+    <?php if($config['use_collage']){ ?><a href="#" class="button btn takeCollage"<?php if($config['use_gpio_button']){ ?>accesskey="m"<?php } ?> ><i class="fa fa-camera"></i> <span data-l10n="takeCollage"></span></a><?php } ?>	  
+	<!-- accesskey to take a photo using alt+p (or use an external button)? -->
+	<a href="#" <?php if($config['use_gpio_button']){ ?>accesskey="p"<?php } ?> class="btn takePic"><i class="fa fa-camera"></i> <span data-l10n="takePhoto"></span></a>
+    <?php if($config['use_filter']){ ?><a href="#" class="button btn imageFilter"><i class="fa fa-magic"></i> <span data-l10n="selectFilter"></span></a><?php } ?>
+  </footer>
+</section>
 
 		<!-- image Filter Pane -->
 		<?php if($config['use_filter']){ ?>
@@ -280,6 +274,10 @@ require_once('db.php');
 		<div class="modal__body"><span data-l10n="printing"></span></div>
 	</div>
 
+	<?php if($config['show_fork']){ ?>
+		<a target="_blank" href="https://github.com/andreknieriem/photobooth"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+	<?php } ?>
+	
 	<div id="adminsettings" >
 		<div style="position:absolute; bottom:0; right:0;"><img src="resources/img/spacer.png" alt="adminsettings" ondblclick="adminsettings()"></div>
 	</div>

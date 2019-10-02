@@ -132,8 +132,15 @@ function printImage() {
 	}
 	var canvas = document.getElementById("mainCanvas");
 	var dataURL = canvas.toDataURL("image/png");
-	$.post( "lib_php/print.php", { imgData: dataURL, mainImageSrc: mainImageSrc }, function( status ) {
-	}, "json");
+	$('#print_mesg').addClass('modal--show');
+	setTimeout(function () {
+		$.post( "chromakeying_print.php", { imgData: dataURL, mainImageSrc: mainImageSrc }, function( status ) {
+			setTimeout(function () {
+				$('#print_mesg').removeClass('modal--show');
+				window.location.reload();
+			},5000);
+		}, "json");
+	},1000);
 }
 
 function saveImage() {
@@ -142,7 +149,12 @@ function saveImage() {
 	}
 	var canvas = document.getElementById("mainCanvas");
 	var dataURL = canvas.toDataURL("image/png");
-	$.post( "lib_php/save.php", { imgData: dataURL, mainImageSrc: mainImageSrc }, function( url ) {
-
-	});
+	$('#save_mesg').addClass('modal--show');
+	setTimeout(function () {
+		$.post( "chromakeying_save.php", { imgData: dataURL, mainImageSrc: mainImageSrc }, function( url ) {
+			setTimeout(function () {
+				$('#save_mesg').removeClass('modal--show');
+			},2000);
+		});
+	},1000);
 }
