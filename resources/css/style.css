@@ -334,8 +334,6 @@ body {
   background-size: cover; }
   #wrapper.bluegray-bg {
     background-image: url(../img/bg_bluegray.jpg); }
-  #wrapper.yellow-bg {
-    background-image: url(../img/bg_yellow.jpg); }  
 
 .adminpanel {
   width: 400px;

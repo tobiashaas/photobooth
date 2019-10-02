@@ -10,13 +10,9 @@ require_once('db.php');
 ?>
 <!DOCTYPE html>
 <html>
-
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
-	<meta name="msapplication-TileColor" content="<?=$config['colors']['primary']?>">
-	<meta name="theme-color" content="<?=$config['colors']['primary']?>">
-
 	<title>Photobooth</title>
 
 	<!-- Favicon + Android/iPhone Icons -->
@@ -25,6 +21,13 @@ require_once('db.php');
 	<link rel="icon" type="image/png" sizes="16x16" href="resources/img/favicon-16x16.png">
 	<link rel="manifest" href="resources/img/site.webmanifest">
 	<link rel="mask-icon" href="resources/img/safari-pinned-tab.svg" color="#5bbad5">
+	<?php if($config['color_theme'] == 'bluegray') { ?>
+		<meta name="msapplication-TileColor" content="ff4f58">
+		<meta name="theme-color" content="#669db3">
+	<?php } else { ?>
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="theme-color" content="#ffffff">
+	<?php }; ?>
 
 	<!-- Fullscreen Mode on old iOS-Devices when starting photobooth from homescreen -->
 	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -275,7 +278,6 @@ require_once('db.php');
 		<div style="position:absolute; bottom:0; right:0;"><img src="resources/img/spacer.png" alt="adminsettings" ondblclick="adminsettings()"></div>
 	</div>
 
-	<script type="text/javascript" src="api/config.php"></script>
 	<script type="text/javascript" src="resources/js/adminshortcut.js"></script>
 	<script type="text/javascript" src="resources/js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="resources/js/jquery.easing.1.3.js"></script>
