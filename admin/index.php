@@ -127,7 +127,8 @@ if (file_exists($my_config)) {
 				'placeholder' => 'default',
 				'options' => [
 					'default' => 'default',
-					'bluegray' => 'blue-gray'
+					'bluegray' => 'blue-gray',
+					'yellow' => 'yellow'
 				],
 				'value' => $config['color_theme']
 			]
