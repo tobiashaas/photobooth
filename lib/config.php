@@ -47,6 +47,11 @@ $colors = [
         'secondary' => '#d35400',
         'font' => '#ffffff',
     ],
+    'yellow' => [
+        'primary' => '#fcff00',
+        'secondary' => '#d35400',
+        'font' => '#ffffff',
+    ],
     'blue-gray' => [
         'primary' => '#669db3',
         'secondary' => '#2e535e',
