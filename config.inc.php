@@ -26,8 +26,7 @@ $config['chroma_keying'] = true;
 $config['use_collage'] = false;
 
 // THEME
-$config['theme'] = false;
-$config['theme'] = 'default';
+$config['themes'] = 'yellow';
 
 // LANGUAGE
 // possible values: en, de, es, fr

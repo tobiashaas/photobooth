@@ -123,16 +123,16 @@ if (file_exists($my_config)) {
 				'name' => 'show_fork',
 				'value' => $config['show_fork']
 			],
-			'theme' => [
+			'themes' => [
 				'type' => 'select',
-				'name' => 'themestyle[theme]',
-				'placeholder' => '[theme]',
+				'name' => 'themes',
+				'placeholder' => 'themes',
 				'options' => [
-					'default' => 'Default',
-					'bluegray' => 'Bluegray',
-					'yellow' => 'Yellow',
+					'default' => 'DEFAULT',
+					'yellow' => 'YELLOW',
+					'bluegray' => 'BLUEGRAY'
 				],
-				'value' => $config['theme']
+				'value' => $config['themes']
 			]
 		],
 		'folders' => [

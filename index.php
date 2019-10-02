@@ -45,6 +45,7 @@ require_once('db.php');
 		var cheese_time = <?php echo ($config['cheese_time']); ?>;
 		var theme = <?php echo $config['theme'] ? "'bluegray'" : "'default'"; ?>;
 	</script>
+	<script type="text/javascript" src="lang/<?php echo $config['themes']; ?>.js"></script>
 </head>
 <body class="deselect">
 	<div id="wrapper">

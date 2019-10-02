@@ -3,6 +3,7 @@ if (theme === 'default') {
 
     document.getElementById('wrapper').style.backgroundImage = 'url(resources/img/bg.jpg)';
 }
+
 if (theme === 'bluegray') {
     var style = document.documentElement.style;
 
